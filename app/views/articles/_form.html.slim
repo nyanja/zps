@@ -1,0 +1,17 @@
+= simple_form_for(@article) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  .form-inputs
+    .d-flex
+      = f.input :name, as: :string, wrapper_html: { class: "expand mr-3" }
+      = f.input :slug, as: :string
+    = f.input :preview
+    = f.input :content
+    = f.input :title, as: :string
+    = f.input :description, as: :string
+    = f.input :keywords, as: :string
+    = f.input :image
+
+  .form-actions
+    = f.button :submit, class: "btn btn-primary"

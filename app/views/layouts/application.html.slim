@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title = @title ||= "Zbs yopta"
+    meta description=@meta_description
+    meta keywords=@meta_keywords
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+body
+  .p-5
+    = yield

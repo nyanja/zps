@@ -1,0 +1,35 @@
+style .background-image { background-image: url(#{url_for @article.image.variant(resize: "700")})}
+
+-if notice
+  .alert.alert-info#notice = notice
+p
+  strong Slug:
+  =< @article.slug
+p
+  strong Title:
+  =< @article.title
+p
+  strong Description:
+  =< @article.description
+p
+  strong Keywords:
+  =< @article.keywords
+
+.background-image.my-4
+  h1.text-center = @article.name
+
+strong Preview:
+hr
+=render_md @article.preview
+
+br
+br
+strong Content:
+hr
+=render_md @article.content
+
+=> link_to 'Edit', edit_article_path(@article)
+span.c-light |
+=<> link_to 'Destroy', @article, data: { confirm: 'Are you sure?' }, method: :delete
+span.c-light |
+=< link_to 'Articles list', articles_path

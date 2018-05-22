@@ -1,0 +1,15 @@
+.d-flex.ai-center
+  .h1.expand Listing articles
+  = link_to 'New Article', new_article_path
+
+- @articles.each do |article|
+  .md.border.p-3.my-3.rounded
+    = render_md article.preview
+    hr
+    => link_to 'Show', article
+    span.c-light |
+    =<> link_to 'Edit', edit_article_path(article)
+    span.c-light |
+    =< link_to 'Destroy', article, data: { confirm: 'Are you sure?' }, method: :delete
+
+= link_to 'New Article', new_article_path

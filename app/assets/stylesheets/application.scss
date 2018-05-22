@@ -1,0 +1,16 @@
+@import 'bootstrap';
+@import 'colors';
+@import 'elements';
+@import 'utils';
+
+.background-image {
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  display: flex;
+  justify-content: center;
+  min-height: 20em;
+  padding: 4em;
+  text-shadow: 0 0 10px #000;
+}
