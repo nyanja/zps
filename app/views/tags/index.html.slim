@@ -1,0 +1,15 @@
+h1 Listing tags
+
+- @tags.each do |tag|
+  .border.my-1.py-2.px-3.rounded.d-flex
+    .expand = tag.name
+    div
+      => link_to 'Show', tag
+      span.c-light |
+      =<> link_to 'Edit', edit_tag_path(tag)
+      span.c-light |
+      =< link_to 'Destroy', tag, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Tag', new_tag_path

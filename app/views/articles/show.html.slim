@@ -15,6 +15,11 @@ p
   strong Keywords:
   =< @article.keywords
 
+p
+  strong Tags:
+  - @article.tags.each do |tag|
+    span.border.rounded.py-1.px-2.mx-1 =< tag.name
+
 .background-image.my-4
   h1.text-center = @article.name
 
