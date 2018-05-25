@@ -1,4 +1,3 @@
 class Tag < ApplicationRecord
-  has_many :subjects
-  has_many :articles, through: :subjects
+  has_and_belongs_to_many :articles
 end

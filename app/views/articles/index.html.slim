@@ -5,6 +5,9 @@
 - @articles.each do |article|
   .md.border.p-3.my-3.rounded
     = render_md article.preview
+    div
+      - article.tags.each do |tag|
+        .badge.badge-primary.m-1 = tag.name
     hr
     => link_to 'Show', article
     span.c-light |

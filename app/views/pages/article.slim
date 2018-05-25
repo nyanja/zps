@@ -5,3 +5,17 @@ style .background-image { background-image: url(#{url_for @article.image.variant
   h1.text-center = @article.name
 br
 = render_md @article.content
+
+br
+hr
+
+h2 Смотрите также:
+
+.my-5
+  - @article.relevants.each do |a|
+    = link_to a.slug do
+      .border.rounded.m-1.py-2.px-3
+        = render_md(a.preview)
+        div
+          - a.tags.each do |t|
+            .badge.badge-primary.m-1 = t.name

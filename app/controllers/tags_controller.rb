@@ -24,7 +24,7 @@ class TagsController < ApplicationController
     @tag = Tag.new(tag_params)
 
     if @tag.save
-      redirect_to :tags, notice: 'Tag was successfully created.'
+      redirect_to tags_url, notice: 'Tag was successfully created.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class TagsController < ApplicationController
   # PATCH/PUT /tags/1
   def update
     if @tag.update(tag_params)
-      redirect_to @tag, notice: 'Tag was successfully updated.'
+      redirect_to tags_url, notice: 'Tag was successfully updated.'
     else
       render :edit
     end

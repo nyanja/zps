@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyText
+  name: article1
   slug: MyText
   preview: MyText
   content: MyText
@@ -10,7 +10,25 @@ one:
   keywords: MyText
 
 two:
-  name: MyText
+  name: article2
+  slug: MyText
+  preview: MyText
+  content: MyText
+  title: MyText
+  description: MyText
+  keywords: MyText
+
+three:
+  name: article3
+  slug: MyText
+  preview: MyText
+  content: MyText
+  title: MyText
+  description: MyText
+  keywords: MyText
+
+four:
+  name: article4
   slug: MyText
   preview: MyText
   content: MyText

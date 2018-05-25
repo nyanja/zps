@@ -1,7 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: tag1
+  id: 1
+  articles: one, two, three
 
 two:
-  name: MyString
+  name: tag2
+  id: 2
+  articles: two, three
+
+three:
+  name: tag3
+  id: 3
+  articles: three, four
+
+four:
+  name: tag4
+  id: 4
+  articles: four, three
