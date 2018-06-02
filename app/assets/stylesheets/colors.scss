@@ -1,2 +1,14 @@
-$light: #aaa;
-.c-light { color: $light; }
+$c-font-light: rgba(0, 0, 0, .4);
+$c-font-medium: rgba(0, 0, 0, .5);
+$c-font-dark: rgba(0, 0, 0, .6);
+$c-border: rgba(0, 0, 0, .1);
+$c-font-inversed: #fff;
+$c-font-primary: rgba(0, 0, 0, .8);
+
+$bg-sheet: rgba(255, 255, 255, .4);
+$bg-header: rgba(0, 115, 134, 0.58);
+//linear-gradient(to right, #83a7c7, #d4adba);
+
+.c-light { color: $c-font-light; }
+.c-medium { color: $c-font-medium; }
+.c-dark { color: $c-font-dark; }

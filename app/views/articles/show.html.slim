@@ -3,33 +3,32 @@ style .background-image { background-image: url(#{url_for @article.image.variant
 -if notice
   .alert.alert-info#notice = notice
 p
-  strong Slug:
+  .label Slug:
   =< @article.slug
 p
-  strong Title:
+  .label Title:
   =< @article.title
 p
-  strong Description:
+  .label Description:
   =< @article.description
 p
-  strong Keywords:
+  .label Keywords:
   =< @article.keywords
 p
-  strong Tags:
+  .label Category:
+  =< @article.category&.name
   - @article.tags.each do |tag|
-    .badge.badge-primary.m-1 =< tag.name
+    .badge.badge-info.m-1 =< tag.name
 
-.background-image.my-4
-  h1.text-center = @article.name
+.my-4
+  = render 'articles/head'
 
-strong Preview:
-hr
+.label Preview:
 =render_md @article.preview
 
 br
 br
-strong Content:
-hr
+.label Content:
 =render_md @article.content
 
 => link_to 'Edit', edit_article_path(@article)

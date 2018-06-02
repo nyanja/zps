@@ -1,3 +1,24 @@
-// Place all the styles related to the articles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.article-relevants {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: -.2em;
+}
+
+.article-relevants-item {
+  flex: 1;
+  margin: .2em;
+  max-width: 20em;
+  min-width: 16em;
+  overflow: hidden;
+  width: 20em;
+}
+
+.article-relevants-item-img {
+  min-height: 8em;
+  padding: 2em;
+}
+
+.article-relevants-item-body {
+  font-size: .9em;
+}

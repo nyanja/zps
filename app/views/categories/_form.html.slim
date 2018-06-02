@@ -5,7 +5,7 @@
   .form-inputs
     = f.input :name
     = f.input :slug
-    = f.input :position
+    = f.input :position, hint: 'Категории без позиции не отображаются в шапке'
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: "btn btn-primary", value: 'Сохранить'

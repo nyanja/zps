@@ -1,0 +1,20 @@
+.header {
+  background: $bg-header;
+  color: $c-font-inversed;
+
+  a {
+    color: $c-font-inversed;
+
+    &:hover {
+      color: $c-font-inversed;
+    }
+  }
+}
+
+.header_logo-block {
+  font-size: 1.8em;
+}
+
+.main-logo {
+  max-height: 5em;
+}

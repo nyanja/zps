@@ -12,5 +12,23 @@
   justify-content: center;
   min-height: 20em;
   padding: 4em;
-  text-shadow: 0 0 10px #000;
+  text-shadow: 0 0 1em #000;
 }
+
+.badge {
+  font-weight: normal;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1080px;
+  padding: 0 .8em;
+}
+
+.md {
+  margin-bottom: -1em;
+}
+
+
+@import 'header';
+@import 'articles';

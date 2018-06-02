@@ -1,18 +1,24 @@
-.d-flex.ai-center
-  .h1.expand Listing articles
-  = link_to 'New Article', new_article_path
+.d-flex.align-items-center
+  .h2 Статьи
+  = link_to new_article_path do
+    i.fas.fa-plus-square.fa-lg.mx-3
 
 - @articles.each do |article|
-  .md.border.p-3.my-3.rounded
+  .md.sheet.bordered.p-3.my-3.rounded
+    .h3 = article.name
     = render_md article.preview
     div
+      .badge.badge-warning.m-1 title="Category" = article.category&.name
       - article.tags.each do |tag|
-        .badge.badge-primary.m-1 = tag.name
+        .badge.badge-info.m-1 = tag.name
     hr
-    => link_to 'Show', article
-    span.c-light |
-    =<> link_to 'Edit', edit_article_path(article)
-    span.c-light |
-    =< link_to 'Destroy', article, data: { confirm: 'Are you sure?' }, method: :delete
+    = link_to article do
+      i.far.fa-eye.mx-3
+    = link_to edit_article_path(article) do
+      i.far.fa-edit.mx-3
+    = link_to article, data: { confirm: 'Are you sure?' }, method: :delete do
+      i.fas.fa-trash.mx-3
+    = link_to "/#{article.slug}" do
+      i.fas.fa-reply.mx-3
 
-= link_to 'New Article', new_article_path
+= link_to 'Создать статью', new_article_path

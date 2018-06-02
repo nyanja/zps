@@ -1,14 +1,52 @@
-// Flex
-
 .expand {
   flex-grow: 100;
 }
 
-.ai-center {
-  align-items: center;
+.b {
+  font-weight: bold;
+}
+
+.bordered {
+  border: 1px solid $c-border;
+}
+
+.box-shaded {
+  box-shadow: 0 0 18px $c-border;
+}
+
+.label {
+  color: $c-font-light;
+  display: inline;
+  font-weight: bold;
 }
 
 .nowrap {
   flex-shrink: 0;
   white-space: nowrap;
+}
+
+.ulink {
+  color: inherit;
+
+  &:hover {
+    text-decoration: inherit;
+  }
+}
+
+.rounded {
+  overflow: hidden;
+}
+
+.ff-primary {
+  font-family: Caveat;
+  font-size: 1.6em;
+  line-height: 1.1em;
+}
+
+.sheet {
+  background: $bg-sheet;
+}
+
+.text-shaded {
+  text-shadow: 0 0 .3em $c-border;
 }

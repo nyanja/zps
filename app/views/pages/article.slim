@@ -1,21 +1,14 @@
 style .background-image { background-image: url(#{url_for @article.image.variant(resize: "700")})}
 
+= render 'articles/head'
 
-.background-image
-  h1.text-center = @article.name
+.sheet.bordered.rounded.pt-3.px-3.mt-3
+  = render_md @article.content
+
 br
-= render_md @article.content
 
-br
-hr
+.h4.c-dark Не менее интересное:
 
-h2 Смотрите также:
-
-.my-5
-  - @article.relevants.each do |a|
-    = link_to a.slug do
-      .border.rounded.m-1.py-2.px-3
-        = render_md(a.preview)
-        div
-          - a.tags.each do |t|
-            .badge.badge-primary.m-1 = t.name
+.article-relevants
+  - @article.relevants.each do |article|
+    = render 'preview', article: article

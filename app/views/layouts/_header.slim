@@ -1,0 +1,14 @@
+header.header.box-shaded
+  .container.d-flex.align-items-center
+    = link_to :root, class: "ulink" do
+      .header_logo-block.mr-1.ff-primary.my-2.text-shaded.b
+        div ЗАПИСКИ
+        div ХОЗЯЙКИ
+    = image_tag '/img/logo-nya.png', class: 'main-logo mr-3'
+    .expand
+    .my-3
+      - if /\/admin\// =~ request.fullpath
+        = render 'layouts/admin_nav'
+      - else
+        = render 'layouts/regular_nav'
+    .expand

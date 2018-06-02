@@ -4,4 +4,10 @@ class ApplicationController < ActionController::Base
   def not_found
     render file: "#{Rails.root}/public/404.html", status: 404
   end
+
+  protected
+
+  def fetch_categories
+    @categories = Category.where('position IS NOT NULL').pluck(:name, :slug)
+  end
 end
