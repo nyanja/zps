@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   has_one_attached :image
+  has_many :comments
   belongs_to :category
   has_and_belongs_to_many :tags
   # accepts_nested_attributes_for :tags
