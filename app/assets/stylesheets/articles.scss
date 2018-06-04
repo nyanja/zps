@@ -26,3 +26,16 @@
 .article-preview-item-body {
   font-size: .9em;
 }
+
+.article-head {
+  min-height: 20em;
+  padding: 4em;
+}
+
+.title-image {
+  align-items: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-shadow: 0 0 1em #000;
+}

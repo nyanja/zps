@@ -18,3 +18,17 @@
 
   .form-actions
     = f.button :submit, class: "btn btn-primary", value: "Сохранить"
+
+hr
+
+.h3 Комментарии:
+
+= render partial: 'comments/comment', collection: @article.comments, locals: { admin: true }
+
+.h3 Добавить комментарий
+= simple_form_for(@article.comments.new) do |ff|
+  = ff.input_field :article_id, value: @article.id, type: :hidden
+  = ff.input :username
+  = ff.input :avatar
+  = ff.input :content
+  = ff.button :submit

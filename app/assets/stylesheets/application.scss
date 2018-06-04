@@ -1,18 +1,23 @@
+$c-font-light: rgba(0, 0, 0, .4);
+$c-font-medium: rgba(0, 0, 0, .5);
+$c-font-dark: rgba(0, 0, 0, .6);
+$c-border: rgba(0, 0, 0, .1);
+$c-font-inversed: #fff;
+$c-font-primary: rgba(0, 0, 0, .8);
+
+$bg-sheet: rgba(255, 255, 255, .4);
+$bg-header: rgba(0, 115, 134, 0.58);
+$bg-dark: rgba(0, 0, 0, .6);
+//linear-gradient(to right, #83a7c7, #d4adba);
+
 @import 'bootstrap';
-@import 'colors';
 @import 'elements';
+@import 'colors';
 @import 'utils';
 
-.background-image {
-  align-items: center;
+.bg-image {
   background-position: center;
   background-size: cover;
-  color: white;
-  display: flex;
-  justify-content: center;
-  min-height: 20em;
-  padding: 4em;
-  text-shadow: 0 0 1em #000;
 }
 
 .badge {
@@ -35,3 +40,4 @@
 @import 'articles';
 @import 'categories';
 @import 'pages';
+@import 'comments';
