@@ -1,11 +1,15 @@
-.article-relevants {
+.article-previews {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: -.2em;
 }
 
-.article-relevants-item {
+.article-title {
+  font-size: 3.8em;
+}
+
+.article-preview-item {
   flex: 1;
   margin: .2em;
   max-width: 20em;
@@ -14,11 +18,11 @@
   width: 20em;
 }
 
-.article-relevants-item-img {
+.article-preview-item-img {
   min-height: 8em;
   padding: 2em;
 }
 
-.article-relevants-item-body {
+.article-preview-item-body {
   font-size: .9em;
 }

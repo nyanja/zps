@@ -2,13 +2,13 @@ style .background-image { background-image: url(#{url_for @article.image.variant
 
 = render 'articles/head'
 
-.sheet.bordered.rounded.pt-3.px-3.mt-3
+.md.sheet.bordered.rounded.pt-3.px-3.mt-3
   = render_md @article.content
 
-br
+.h4.c-dark.mt-5 Может Вас заинтересовать:
 
-.h4.c-dark Не менее интересное:
-
-.article-relevants
+.article-previews
   - @article.relevants.each do |article|
     = render 'preview', article: article
+
+= render 'comments'

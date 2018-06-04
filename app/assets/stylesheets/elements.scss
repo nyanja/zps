@@ -1,39 +1,40 @@
 body {
   background-attachment: fixed;
-  background-image: url('/img/download.jpeg');
+  background-image: url('/img/bg.jpeg');
   background-size: 100vw 100vh;
   color: $c-font-primary;
+  display: flex;
+  flex-direction: column;
   font-size: 1.1em;
+  min-height: 100vh;
 }
 
 label {
   margin-bottom: 0.2rem;
 }
 
+.md {
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: Caveat;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 2.6em;
+    line-height: 1em;
+  }
+
+  h3 {
+    font-size: 2em;
+    font-weight: normal;
+  }
+}
+
 textarea {
   min-height: 20em;
-}
-
-h1,
-h2,
-h3,
-h4 {
-  font-family: Caveat;
-  font-weight: bold;
-}
-
-h1 {
-  font-size: 3.8em;
-}
-
-h2 {
-  font-size: 2.6em;
-  line-height: 1em;
-}
-
-h3 {
-  font-size: 2em;
-  font-weight: normal;
 }
 
 .form-control {

@@ -2,7 +2,7 @@ style .background-image { background-image: url(#{url_for @article.image.variant
 
 .rounded.bordered
   .background-image
-    h1.text-center = @article.name
+    h1.text-center.article-title.ff-primary = @article.name
   .sheet.py-2.d-flex.ai-center.c-medium.small
     - if (ttr = @article.time_to_read)
       .mx-3 title="Время прочтения"
@@ -14,6 +14,3 @@ style .background-image { background-image: url(#{url_for @article.image.variant
     .mx-3 title="Количество просмотров"
       i.fa-eye.fas.mr-1
       span = @article.views_count
-    .mx-3 title="Понравилось"
-      i.fa-heart.far.mr-1
-      span 100500

@@ -1,5 +1,5 @@
-= link_to "/#{article.slug}", class: "article-relevants-item bordered sheet rounded ulink d-flex flex-column" do
-  .background-image.article-relevants-item-img.text-center style="background-image:url(#{url_for article.image.variant(resize: '400')})"
+= link_to "/#{article.slug}", class: "article-preview-item bordered sheet rounded ulink d-flex flex-column" do
+  .background-image.article-preview-item-img.text-center style="background-image:url(#{url_for article.image.variant(resize: '400')})"
     .h4 = article.name
   .p-2.d-flex.small.justify-content-center.c-dark
     - if (ttr = article.time_to_read)
@@ -12,7 +12,7 @@
     .mx-3 title="Количество просмотров"
       i.fa-eye.fas.mr-1
       span = article.views_count
-  .py-2.px-3.article-relevants-item-body.expand.md = render_md(article.preview)
+  .py-2.px-3.article-preview-item-body.expand.md = render_md(article.preview)
   span.btn.btn-link.pb-2 читать далее
   /.mb-3.px-3.text-center
     .badge.badge-warning = article.category.name

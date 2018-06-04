@@ -1,0 +1,6 @@
+.category
+  h1.fs-xxl.c-medium.text-center = @category.name
+  hr
+  .article-previews
+    - @category.articles.each do |article|
+      = render 'pages/preview', article: article

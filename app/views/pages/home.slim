@@ -1,1 +1,9 @@
-= "hello"
+.sheet.bordered.rounded.p-3
+  - @categories.each do |category|
+    .home-catalog
+      .ff-primary.h2.c-medium = category.name
+      ul
+        - category.articles.each do |article|
+          li
+            = link_to "/#{article.slug}", class: "ulink" do
+              .ff-primary.h1 = article.name
