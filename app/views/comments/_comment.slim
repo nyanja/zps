@@ -4,7 +4,7 @@
   .ml-3.expand
     .d-flex
       strong.expand = comment.username
-      - if local_assigns[:admin]
+        - if local_assigns[:admin]
         = link_to edit_comment_path(comment) do
           i.far.fa-edit.mx-3
         = link_to comment, data: { confirm: 'Are you sure?' }, method: :delete do

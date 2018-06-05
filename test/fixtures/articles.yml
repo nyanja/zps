@@ -5,8 +5,8 @@ one:
   slug: MyText
   preview: MyText
   content: MyText
-  title: MyText
-  description: MyText
+  title: '{site} - {name}'
+  description: 'lol {title}'
   keywords: MyText
 
 two:

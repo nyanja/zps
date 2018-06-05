@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  include Formatable
+  formatable_fields :title, :description, :keywords
   has_one_attached :image
   has_many :comments
   belongs_to :category
