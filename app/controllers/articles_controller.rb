@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  http_basic_authenticate_with user: 'zbs', password: ENV['ZBS_PASSWORD']
+  http_basic_authenticate_with name: 'zbs', password: ENV['ZBS_PASSWORD']
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   # GET /articles
