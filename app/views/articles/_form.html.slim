@@ -9,9 +9,9 @@
     = f.input :time_to_read
     = f.input :preview, hint: "do not use h1, h2, h3 headings"
     = f.input :content, hint: "do not use h1 heading"
-    = f.input :title, as: :string
-    = f.input :description, as: :string
-    = f.input :keywords, as: :string
+    = f.input :title, as: :string, input_html: { value: @article[:title] }
+    = f.input :description, as: :string, input_html: { value: @article[:description] }
+    = f.input :keywords, as: :string, input_html: { value: @article[:keywords] }
     = f.input :image
     = f.association :category
     = f.association :tags, as: :check_boxes, label_method: :name
