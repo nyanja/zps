@@ -12,8 +12,9 @@ class ArticleTest < ActiveSupport::TestCase
   end
 
   test 'formatted fields' do
-    # from '{site} - {name}'
+    # converting from '{site} - {name}'
     assert_equal 'Записки хозяйки - article1', articles(:one).title
     assert_equal 'lol Записки хозяйки - article1', articles(:one).description
+    assert_nil articles(:two).title
   end
 end

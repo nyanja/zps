@@ -20,7 +20,7 @@ module Formatable
     end
 
     def format
-      @model[@key].gsub(/{[^{}]+}/) do |p|
+      @model[@key]&.gsub(/{[^{}]+}/) do |p|
         msg = p.delete('{}').to_sym
         MATCHER[msg] || (@model.respond_to?(msg) ? @model.send(msg) : '')
       end
