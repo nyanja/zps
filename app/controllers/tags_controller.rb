@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  http_basic_authenticate_with password: ENV['ZBS_PASSWORD']
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
 
   # GET /tags

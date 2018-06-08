@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  http_basic_authenticate_with password: ENV['ZBS_PASSWORD']
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /comments

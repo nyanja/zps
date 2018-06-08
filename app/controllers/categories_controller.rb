@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  http_basic_authenticate_with password: ENV['ZBS_PASSWORD']
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
