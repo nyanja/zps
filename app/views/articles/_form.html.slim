@@ -22,13 +22,13 @@
 hr
 
 .h3 Комментарии:
-
-= render partial: 'comments/comment', collection: @article.comments, locals: { admin: true }
+#article-comments
+  = render partial: 'comments/comment', collection: @article.comments, locals: { admin: true }
 
 .h3 Добавить комментарий
-= simple_form_for(@article.comments.new) do |ff|
+= simple_form_for @article.comments.new, remote: true do |ff|
   = ff.input_field :article_id, value: @article.id, type: :hidden
   = ff.input :username
   = ff.input :avatar
   = ff.input :content
-  = ff.button :submit
+  = ff.button :submit, class: "btn-primary btn"
