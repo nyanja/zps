@@ -1,4 +1,4 @@
 language: ruby
 install: gem install rails
 bundler_args: --without production
-before_script: bundle exec rails db:create db:migrate
+before_script: bundle; bundle exec rails db:create db:migrate
