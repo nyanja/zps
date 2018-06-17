@@ -5,7 +5,8 @@ class Article < ApplicationRecord
   has_many :comments
   belongs_to :category
   has_and_belongs_to_many :tags
-  # accepts_nested_attributes_for :tags
+
+  after_commit :attach_default_image, on: :create
 
   def relevants(n = 6)
     ids = ArticlesTag
@@ -17,5 +18,14 @@ class Article < ApplicationRecord
             .reject { |v| v == id }
             .take(n)
     Article.where(id: ids)
+  end
+
+  private
+
+  def attach_default_image
+    return if image.attached?
+    image.attach io: File.open(Rails.root.join(*%w[public img ph.png])),
+                 filename: 'ph.png',
+                 content_type: 'image/png'
   end
 end

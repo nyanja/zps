@@ -1,11 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: Category1
   slug: MyString
   position: 1
 
 two:
-  name: MyString
+  name: Category2
   slug: MyString
-  position: 1

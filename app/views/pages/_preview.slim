@@ -1,5 +1,5 @@
 = link_to "/#{article.slug}", class: "article-preview-item bordered sheet rounded ulink d-flex flex-column" do
-  .title-image.bg-image.article-preview-item-img.text-center style="background-image:url(#{url_for article.image&.variant(resize: '400')})"
+  .title-image.bg-image.article-preview-item-img.text-center style="background-image:url(#{url_for article.image.variant(resize: '400')})"
     .h4 = article.name
   .p-2.d-flex.small.justify-content-center.c-dark
     - if (ttr = article.time_to_read)

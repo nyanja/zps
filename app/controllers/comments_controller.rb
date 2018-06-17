@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   http_basic_authenticate_with name: 'zbs', password: ENV['ZBS_PASSWORD']
-  before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :set_comment, only: [:show, :edit, :update, #:destroy
+                                    ]
 
   # GET /comments
   def index
@@ -43,8 +44,12 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1
   def destroy
-    @comment.destroy
-    redirect_to comments_url, notice: 'Comment was successfully destroyed.'
+    # @comment.destroy
+    respond_to do |f|
+      f.js { render js: 'refreshComments();'}
+    end
+    # render layout: false
+    # redirect_to current_path_url, notice: 'Comment was successfully destroyed.'
   end
 
   private
