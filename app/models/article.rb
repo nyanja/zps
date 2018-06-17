@@ -24,7 +24,7 @@ class Article < ApplicationRecord
 
   def attach_default_image
     return if image.attached?
-    image.attach io: File.open(Rails.root.join(*%w[public img ph.png])),
+    image.attach io: File.open(Rails.root.join(* %w[public img ph.png])),
                  filename: 'ph.png',
                  content_type: 'image/png'
   end

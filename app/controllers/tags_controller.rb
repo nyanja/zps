@@ -1,5 +1,7 @@
 class TagsController < ApplicationController
-  http_basic_authenticate_with name: 'zbs', password: ENV['ZBS_PASSWORD']
+  if Rails.env.production?
+    http_basic_authenticate_with name: 'zbs', password: ENV['ZBS_PASSWORD']
+  end
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
 
   # GET /tags

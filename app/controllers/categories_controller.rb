@@ -1,5 +1,7 @@
 class CategoriesController < ApplicationController
-  http_basic_authenticate_with name: 'zbs', password: ENV['ZBS_PASSWORD']
+  if Rails.env.production?
+    http_basic_authenticate_with name: 'zbs', password: ENV['ZBS_PASSWORD']
+  end
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories

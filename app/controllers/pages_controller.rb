@@ -1,13 +1,11 @@
 class PagesController < ApplicationController
-  def home
-    fetch_categories
+  before_action :fetch_categories
 
+  def home
     @categories = Category.all
   end
 
   def article
-    fetch_categories
-
     @article = Article.find_by_slug(params[:slug])
     return not_found unless @article
     @title = @article.title
@@ -17,8 +15,6 @@ class PagesController < ApplicationController
   end
 
   def category
-    fetch_categories
-
     @category = Category.find_by_slug(params[:slug])
     return not_found unless @category
     @title = @description = @category.name
