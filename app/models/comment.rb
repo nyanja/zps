@@ -4,6 +4,8 @@ class Comment < ApplicationRecord
 
   after_commit :attach_default_avatar, on: :create
 
+  default_scope { order "created_at ASC" }
+
   private
 
   def attach_default_avatar
