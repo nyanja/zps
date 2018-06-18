@@ -1,5 +1,5 @@
 |
-  $("#article-comments").html("#{j(render @comments)}");
+  $("#article-comments").html("#{j(render @comments, admin: true)}");
   $("[name=\"comment[username]\"]").val(null);
   $("[name=\"comment[content]\"]").val(null);
   $("[name=\"comment[avatar]\"]").val(null);
