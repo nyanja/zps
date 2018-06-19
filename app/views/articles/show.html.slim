@@ -24,15 +24,19 @@ p
   = render 'articles/head'
 
 .label Preview:
-=render_md @article.preview
+.md.article-preview-item.bordered.sheet.rounded.p-3
+  =render_md @article.preview
 
 br
 br
 .label Content:
-=render_md @article.content
+.md
+  =render_md @article.content
 
-=> link_to 'Edit', edit_article_path(@article)
+br
+br
+=> link_to 'Редактировать', edit_article_path(@article)
 span.c-light |
-=<> link_to 'Destroy', @article, data: { confirm: 'Are you sure?' }, method: :delete
+=<> link_to 'Удалить', @article, data: { confirm: 'Точно?' }, method: :delete
 span.c-light |
-=< link_to 'Articles list', articles_path
+=< link_to 'Статьи', articles_path

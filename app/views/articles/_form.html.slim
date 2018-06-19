@@ -4,13 +4,35 @@
 
   .form-inputs
     .d-flex
-      = f.input :name, as: :string, wrapper_html: { class: "expand mr-3" }
+      = f.input :name, as: :string, wrapper_html: { class: "expand mr-3" },
+                hint: "отображается поверх глваного изображения"
       = f.input :slug, as: :string
     = f.input :time_to_read
-    = f.input :preview, hint: "do not use h1, h2, h3 headings"
-    = f.input :content, hint: "do not use h1 heading"
-    = f.input :title, as: :string, input_html: { value: @article[:title] }
-    = f.input :description, as: :string, input_html: { value: @article[:description] }
+    = f.input :preview, hint: "короткий текст без заголовков 150 символов"
+    = f.input :content, wrapper_html: { class: 'mb-1' }
+    .small.text-muted.mb-3
+      div ## заголовок h2
+      div
+        ' **жирный** __жирный__
+      div
+        ' *наклонный* _наклонный_
+      div
+        ' 1. элемент списка / * элемент списка / - элемент списка
+      div
+        ' [ссылка на](https://example.com "Title text")
+      div ![изображение alt text](https://ex.com/icon48.png "Logo Title Text")
+      div > цитата
+    = f.input :title, as: :string, input_html: { value: @article[:title] },
+              wrapper_html: { class: 'mb-1' }
+    .small.text-muted.mb-3
+      div форматируемое поле:
+      div
+        ' {domain} => записки-хозяйки.рф
+      div
+        ' {site} => Записки Хозяйки
+      div
+        ' а так же {name}, {title} и т.д. (Берегись перекрестных ссылок!)
+    = f.input :description, as: :string, input_html: { value: @article[:description] }, hint: "форматируемое поле"
     = f.input :keywords, as: :string, input_html: { value: @article[:keywords] }
     = f.input :image
     = f.association :category
