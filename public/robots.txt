@@ -1,1 +1,18 @@
-# See http://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+# xn----7sbucdachfe5bh1a3dyi.xn--p1ai
+
+User-agent: *
+Disallow: /admin/*
+Disallow: /*?*=
+Allow: /*.css
+Allow: /*.woff
+Allow: /*.ttf
+
+User-agent: Yandex
+Disallow: /admin/*
+Disallow: /*?*=
+Allow: /*.css
+Allow: /*.woff
+Allow: /*.ttf
+
+Host: https://xn----7sbucdachfe5bh1a3dyi.xn--p1ai
+Sitemap: https://xn----7sbucdachfe5bh1a3dyi.xn--p1ai/sitemap.xml.gz
