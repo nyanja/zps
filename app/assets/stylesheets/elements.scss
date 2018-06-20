@@ -31,6 +31,12 @@ label {
     font-size: 2em;
     font-weight: normal;
   }
+
+  blockquote {
+    border-left: .2em solid $c-font-light;
+    color: black;
+    padding-left: 1em;
+  }
 }
 
 textarea {
