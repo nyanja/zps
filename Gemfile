@@ -19,6 +19,8 @@ gem 'bootstrap'
 gem 'redcarpet'
 gem 'jquery-rails', '4.2'
 gem 'image_processing', '~> 1.2'
+gem 'sitemap_generator', '6.0.1'
+gem 'whenever'
 
 gem 'turbolinks', '~> 5'
 
