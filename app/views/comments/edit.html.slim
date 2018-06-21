@@ -1,8 +1,5 @@
-h1 Editing comment
+.h2 = "Редактирование комментария статьи '#{@comment.article.name}'"
 
 == render 'form'
 
-=> link_to 'Show', @comment
-'|
-=< link_to 'Back', comments_path
-
+= link_to 'Назад', edit_article_path(@comment.article)

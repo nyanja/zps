@@ -4,20 +4,6 @@ class CommentsController < ApplicationController
   end
   before_action :set_comment, only: %i[show edit update destroy]
 
-  # GET /comments
-  def index
-    @comments = Comment.all
-  end
-
-  # GET /comments/1
-  def show
-  end
-
-  # GET /comments/new
-  def new
-    @comment = Comment.new
-  end
-
   # GET /comments/1/edit
   def edit
   end
@@ -36,7 +22,7 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   def update
     if @comment.update(comment_params)
-      redirect_to @comment, notice: 'Comment was successfully updated.'
+      redirect_to edit_article_path(@comment.article)
     else
       render :edit
     end
