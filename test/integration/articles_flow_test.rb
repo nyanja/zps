@@ -15,6 +15,7 @@ class ArticlesFlowTest < ActionDispatch::IntegrationTest
     get response.location
     assert_response :success
     assert_select 'h2', 'hello'
+    assert_select 'img', src: '/img/ph.png'
 
     # Visit the article as an user
     get '/slug'
