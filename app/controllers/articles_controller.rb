@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
   if Rails.env.production?
-    http_basic_authenticate_with name: 'zbs', password: ENV['ZBS_PASSWORD']
+    http_basic_authenticate_with name: "zbs", password: ENV["ZBS_PASSWORD"]
   end
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: %i[show edit update destroy]
 
   # GET /articles
   def index
@@ -10,8 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   # GET /articles/1
-  def show
-  end
+  def show; end
 
   # GET /articles/new
   def new
@@ -19,8 +18,7 @@ class ArticlesController < ApplicationController
   end
 
   # GET /articles/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /articles
   def create
@@ -28,7 +26,7 @@ class ArticlesController < ApplicationController
 
     if @article.save
       attach_image
-      redirect_to @article, notice: 'Article was successfully created.'
+      redirect_to @article, notice: "Article was successfully created."
     else
       render :new
     end
@@ -38,7 +36,7 @@ class ArticlesController < ApplicationController
   def update
     if @article.update(article_params)
       attach_image
-      redirect_to @article, notice: 'Article was successfully updated.'
+      redirect_to @article, notice: "Article was successfully updated."
     else
       render :edit
     end
@@ -47,23 +45,25 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   def destroy
     @article.destroy
-    redirect_to articles_url, notice: 'Article was successfully destroyed.'
+    redirect_to articles_url, notice: "Article was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_article
-      @article = Article.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def article_params
-      params.require(:article).permit(:name, :slug, :preview, :content, :title, :description, :keywords, { tag_ids: [] }, :category_id, :time_to_read)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
-    def attach_image
-      if (image = params[:article][:image])
-        @article.image.attach(image)
-      end
-    end
+  # Only allow a trusted parameter "white list" through.
+  def article_params
+    params.require(:article).permit(:name, :slug, :preview, :content, :title,
+                                    :description, :keywords, { tag_ids: [] },
+                                    :category_id, :time_to_read)
+  end
+
+  def attach_image
+    return unless params[:article][:image]
+    @article.image.attach(params[:article][:image])
+  end
 end

@@ -2,15 +2,21 @@
   background: $bg-header;
   color: $c-font-inversed;
 
-  a {
-    color: $c-font-inversed;
+}
 
-    &:hover {
-      color: $c-font-inversed;
-    }
+.header__nav-item {
+  color: $c-font-inversed;
+  transition: color 400ms;
+  text-transform: uppercase;
+  font-size: 1.1em;
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: none;
+    color: var(--c-font-active);
   }
 }
 
-.header_logo-block {
+.header__logo {
   font-size: 1.8em;
 }

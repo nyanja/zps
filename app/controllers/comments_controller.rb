@@ -1,12 +1,11 @@
 class CommentsController < ApplicationController
   if Rails.env.production?
-    http_basic_authenticate_with name: 'zbs', password: ENV['ZBS_PASSWORD']
+    http_basic_authenticate_with name: "zbs", password: ENV["ZBS_PASSWORD"]
   end
   before_action :set_comment, only: %i[show edit update destroy]
 
   # GET /comments/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /comments
   def create
@@ -55,9 +54,7 @@ class CommentsController < ApplicationController
   end
 
   def attach_image
-    if (image = params[:comment][:avatar])
-      @comment.avatar.attach(image)
-    end
+    return unless params[:comment][:avatar]
+    @comment.avatar.attach(params[:comment][:avatar])
   end
-
 end
