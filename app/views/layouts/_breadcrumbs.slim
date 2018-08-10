@@ -1,8 +1,12 @@
-.breadcrumbs.fs-s
-  => link_to :root do
-    i.fas.fa-home
+.breadcrumbs.fs-s [itemscope itemtype="http://schema.org/BreadcrumbList"]
+  span [itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"]
+    => link_to :root, itemprop: "item" do
+      i.fas.fa-home
   '-
   - data[0...-1].each do |item|
-    =<> link_to *item
-    '-
-  span.c-medium = data.last
+    span [itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"]
+      =<> link_to item.last, itemprop: "item" do
+        span itemprop="name" = item.first
+      '-
+  span [itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"]
+    span.c-medium itemprop="name" = data.last
