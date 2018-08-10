@@ -1,6 +1,9 @@
 style .bg-image { background-image: url(#{url_for @article.image.variant(resize: "700")})}
 
-= render partial: 'layouts/breadcrumbs', locals: { data: [@article.category, @article] }
+= render partial: 'layouts/breadcrumbs',
+         locals: { data: [[@article.category.name,
+                           category_page_path(@article.category.slug)],
+                          @article.name] }
 
 = render 'articles/head'
 

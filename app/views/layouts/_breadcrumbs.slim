@@ -3,6 +3,6 @@
     i.fas.fa-home
   '-
   - data[0...-1].each do |item|
-    =<> link_to item.name, item
+    =<> link_to *item
     '-
-  span.c-medium = data.last.name
+  span.c-medium = data.last
