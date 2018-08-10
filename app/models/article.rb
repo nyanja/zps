@@ -20,6 +20,11 @@ class Article < ApplicationRecord
     Article.where(id: ids)
   end
 
+  def time_to_read
+    # in minutes
+    (content.size * 0.0015).round
+  end
+
   private
 
   def attach_default_image

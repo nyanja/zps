@@ -9,7 +9,12 @@
       = f.input :slug, as: :string
     = f.input :time_to_read
     = f.input :preview, hint: "короткий текст без заголовков 150 символов"
-    = f.input :content, wrapper_html: { class: 'mb-1' }
+    div#article-content-hint.float-right.label
+    = f.input :content, wrapper_html: { class: 'mb-1' },
+                        input_html: { id: "article-content",
+                                      oninput: "updateArticleContentHint(this.value)" }
+    script updateArticleContentHint();
+
     .small.text-muted.mb-3
       div ## заголовок h2
       div
