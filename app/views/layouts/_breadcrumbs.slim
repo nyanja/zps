@@ -1,0 +1,8 @@
+.breadcrumbs.fs-s
+  => link_to :root do
+    i.fas.fa-home
+  '-
+  - data[0...-1].each do |item|
+    =<> link_to item.name, item
+    '-
+  span.c-medium = data.last.name

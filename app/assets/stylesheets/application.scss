@@ -23,24 +23,6 @@ $bg-dark: rgba(0, 0, 0, .6);
 @import 'colors';
 @import 'utils';
 
-.bg-image {
-  background-position: center;
-  background-size: cover;
-}
-
-.badge {
-  font-weight: normal;
-}
-
-.container {
-  margin: 0 auto;
-  max-width: 1080px;
-  padding: 0 .8em;
-}
-
-.md {
-  margin-bottom: -1em;
-}
 
 
 @import 'header';
