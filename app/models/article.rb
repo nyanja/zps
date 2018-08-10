@@ -8,15 +8,15 @@ class Article < ApplicationRecord
 
   after_commit :attach_default_image, on: :create
 
-  def relevants(n = 6)
+  def relevants quantity = 6
     ids = ArticlesTag
-            .where(tag_id: tag_ids)
-            .order(count: :desc)
-            .group(:article_id)
-            .count
-            .keys
-            .reject { |v| v == id }
-            .take(n)
+          .where(tag_id: tag_ids)
+          .order(count: :desc)
+          .group(:article_id)
+          .count
+          .keys
+          .reject { |v| v == id }
+          .take(quantity)
     Article.where(id: ids)
   end
 
@@ -29,8 +29,8 @@ class Article < ApplicationRecord
 
   def attach_default_image
     return if image.attached?
-    image.attach io: File.open(Rails.root.join(* %w[public img ph.png])),
-                 filename: 'ph.png',
-                 content_type: 'image/png'
+    image.attach io: File.open(Rails.root.join("public", "img", "ph.png")),
+                 filename: "ph.png",
+                 content_type: "image/png"
   end
 end

@@ -7,7 +7,7 @@ style .bg-image { background-image: url(#{url_for @article.image.variant(resize:
     - if (ttr = @article.time_to_read)
       .mx-3 title="Время прочтения"
         i.fa-stopwatch.fas.mr-1
-        span = ttr
+        span = "#{ttr} мин."
     .mx-3 title="Дата создания"
       i.fa-calendar-alt.fas.mr-1
       span = @article.created_at.strftime("%d.%m.%Y")
