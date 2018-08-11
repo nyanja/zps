@@ -1,9 +1,9 @@
 header.header.box-shaded
   .container.d-flex.align-items-center
-    = link_to :root, class: "ulink" do
-      i.fa.fa-home.header__logo.header__nav-item
+    = link_to :root, class: "ulink header__logo" do
+      i.fa.fa-home.header__nav-item
     .expand
-    .my-3
+    .header__nav
       - if /\/admin\// =~ request.fullpath
         = render 'layouts/admin_nav'
       - else

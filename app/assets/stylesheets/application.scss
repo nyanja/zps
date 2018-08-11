@@ -12,11 +12,16 @@ $bg-header: rgba(0, 0, 0, 0.8);
 $bg-dark: rgba(0, 0, 0, .6);
 //linear-gradient(to right, #83a7c7, #d4adba);
 
+
+// reusable colors
+
 :root {
   --c-font-active: #ffca56;
 
   --bg-body: #eee;
 }
+
+
 
 @import 'bootstrap';
 @import 'elements';
@@ -31,3 +36,5 @@ $bg-dark: rgba(0, 0, 0, .6);
 @import 'categories';
 @import 'pages';
 @import 'comments';
+
+@import 'media';
