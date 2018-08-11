@@ -3,18 +3,18 @@ style .bg-image { background-image: url(#{url_for @article.image.variant(resize:
 
   .bg-image.article__title-image.article__head
     h1.text-center.article__h1 = @article.name
-  .sheet.py-2.d-flex.ai-center.c-medium.small
+  .article__sub-head.sheet.py-2.d-flex.ai-center.c-medium.small.mx-1
     - if (ttr = @article.time_to_read)
-      .mx-3 title="Время прочтения"
+      .mx-2.nowrap title="Время прочтения"
         i.fa-stopwatch.fas.mr-1
         span = "#{ttr} мин."
-    .mx-3 title="Дата создания"
+    .mx-2.nowrap title="Дата создания"
       i.fa-calendar-alt.fas.mr-1
       span = @article.created_at.strftime("%d.%m.%Y")
-    .mx-3 title="Количество просмотров"
+    .mx-2.nowrap title="Количество просмотров"
       i.fa-eye.fas.mr-1
       span = @article.views_count
     - if @article.comments.count.positive?
-      a.mx-3.ulink title="Количество комментариев" href="#comments"
+      a.mx-2.ulink.nowrap title="Количество комментариев" href="#comments"
         i.far.fa-comment.mr-1
         span = @article.comments.count
