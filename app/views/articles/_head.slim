@@ -1,7 +1,7 @@
 style .bg-image { background-image: url(#{url_for @article.image.variant(resize: "700")})}
 .rounded.bordered.mt-2
 
-  .bg-image.title-image.article-head
+  .bg-image.article__title-image.article__head
     h1.text-center.article__h1 = @article.name
   .sheet.py-2.d-flex.ai-center.c-medium.small
     - if (ttr = @article.time_to_read)

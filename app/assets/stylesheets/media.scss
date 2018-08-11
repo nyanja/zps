@@ -14,6 +14,10 @@
   .article__h1 {
     font-size: 3em;
   }
+
+  .article__head {
+    min-height: 18em;
+  }
 }
 
 @include media-breakpoint-down(sm) { // SMALL >
@@ -28,6 +32,11 @@
   .article__h1 {
     font-size: 2.6em;
   }
+
+  .article__head {
+    min-height: 16em;
+    padding: 3em;
+  }
 }
 
 @include media-breakpoint-down(xs) { // XSMALL >
@@ -37,5 +46,10 @@
 
   .article__h1 {
     font-size: 2em;
+  }
+
+  .article__head {
+    min-height: 14em;
+    padding: 2em;
   }
 }
