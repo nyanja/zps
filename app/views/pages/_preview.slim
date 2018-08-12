@@ -3,13 +3,13 @@
     .h4 = article.name
   .p-2.d-flex.small.justify-content-center.c-dark
     - if (ttr = article.time_to_read)
-      .mx-3 title="Время прочтения"
+      .mx-2.nowrap title="Время прочтения"
         i.fa-stopwatch.fas.mr-1
-        span = ttr
-    .mx-3 title="Дата создания"
+        span = "%d мин." % ttr
+    .mx-3.nowrap title="Дата создания"
       i.fa-calendar-alt.fas.mr-1
       span = article.created_at.strftime("%d.%m.%Y")
-    .mx-3 title="Количество просмотров"
+    .mx-2.nowrap title="Количество просмотров"
       i.fa-eye.fas.mr-1
       span = article.views_count
   .py-2.px-3.article-preview-item-body.expand.md = render_md(article.preview)
