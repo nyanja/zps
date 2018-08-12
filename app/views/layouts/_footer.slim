@@ -1,4 +1,8 @@
 .py-3
   .container.text-center
     hr
+    .small
+      =<> link_to "Главная", :root, class: "ulink"
+      ||
+      =<> link_to "Все статьи", :catalog, class: "ulink"
     .small = "© \"Записки хозяйки\" 2018 – #{Time.current.year}"
