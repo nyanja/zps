@@ -1,8 +1,11 @@
-.bordered.rounded.sheet.my-2.py-2.px-3.d-flex.align-items-start
-  - if comment.avatar.attached?
-    .comment-avatar.bg-image.rounded-circle style="background-image:url(#{url_for(comment.avatar.variant(resize: '60x60'))})"
-  .ml-3.expand
-    .d-flex
+.comment.bordered.rounded.sheet.my-2.py-2.px-3.d-flex.align-items-start
+  .d-flex
+    .comment__avatar.bg-image.rounded-circle.mr-3(
+      style="background-image:url(#{url_for(comment.avatar.variant(resize: '60x60'))})")
+    .d-sm-none
+      strong.expand = comment.username
+  .expand
+    .d-none.d-sm-flex
       strong.expand = comment.username
       - if local_assigns[:admin]
         = link_to edit_comment_path(comment) do
@@ -11,4 +14,4 @@
                            method: :delete,
                            remote: true do
           i.fa.fa-trash
-    .md = render_md comment.content
+    .md.mt-2 = render_md comment.content
