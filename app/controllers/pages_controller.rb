@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   before_action :fetch_categories
 
-  def home
+  def catalog
     @categories = Category.all
   end
 

@@ -1,9 +1,9 @@
 .sheet.bordered.rounded.p-3
   - @categories.each do |category|
-    .home-catalog
-      .h2.c-medium = category.name
+    .catalog
+      .h3.c-medium = category.name
       ul
         - category.articles.each do |article|
           li
             = link_to "/#{article.slug}", class: "ulink" do
-              .h1 = article.name
+              .h2 = article.name

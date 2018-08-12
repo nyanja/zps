@@ -14,19 +14,19 @@ label {
   margin-bottom: 0.2rem;
 }
 
+h2, .h2 {
+  font-size: 2em;
+}
+
+h3, .h3 {
+  font-size: 1.75em;
+}
+
+h4, .h4 {
+  font-size: 1.5em;
+}
+
 .md {
-  h2 {
-    font-size: 2em;
-  }
-
-  h3 {
-    font-size: 1.75em;
-  }
-
-  h4 {
-    font-size: 1.5em;
-  }
-
   blockquote {
     border-left: .2em solid $c-font-light;
     color: black;
