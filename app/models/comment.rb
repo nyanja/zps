@@ -10,8 +10,8 @@ class Comment < ApplicationRecord
 
   def attach_default_avatar
     return if avatar.attached?
-    avatar.attach io: File.open(Rails.root.join(*%w[public img user_ph.png])),
-                  filename: 'ph.png',
-                  content_type: 'image/png'
+    avatar.attach io: File.open(Rails.root.join("public", "img", "user_ph.svg")),
+                  filename: "ph.svg",
+                  content_type: "text/xml"
   end
 end

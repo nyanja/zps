@@ -1,7 +1,10 @@
 .comment.bordered.rounded.sheet.my-2.py-2.px-3.d-flex.align-items-start
   .d-flex
     .comment__avatar.bg-image.rounded-circle.mr-3(
-      style="background-image:url(#{url_for(comment.avatar.variant(resize: '60x60'))})")
+      style = "background-image:url(
+      #{url_for( comment.avatar.content_type == 'image/svg+xml' ?
+      comment.avatar : comment.avatar.variant(resize: '120x120'))})")
+
     .d-sm-none
       strong.expand = comment.username
   .expand
