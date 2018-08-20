@@ -19,4 +19,6 @@ class PagesController < ApplicationController
     return not_found unless @category
     @title = @description = @category.name
   end
+
+  def admin; end
 end

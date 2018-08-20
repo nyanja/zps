@@ -1,8 +1,8 @@
 class TagsController < ApplicationController
   if Rails.env.production?
-    http_basic_authenticate_with name: 'zbs', password: ENV['ZBS_PASSWORD']
+    http_basic_authenticate_with name: "zbs", password: ENV["ZBS_PASSWORD"]
   end
-  before_action :set_tag, only: [:show, :edit, :update, :destroy]
+  before_action :set_tag, only: %i[show edit update destroy]
 
   # GET /tags
   def index
@@ -10,8 +10,7 @@ class TagsController < ApplicationController
   end
 
   # GET /tags/1
-  def show
-  end
+  def show; end
 
   # GET /tags/new
   def new
@@ -19,15 +18,14 @@ class TagsController < ApplicationController
   end
 
   # GET /tags/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /tags
   def create
     @tag = Tag.new(tag_params)
 
     if @tag.save
-      redirect_to tags_url, notice: 'Tag was successfully created.'
+      redirect_to tags_url, notice: "Tag was successfully created."
     else
       render :new
     end
@@ -36,7 +34,7 @@ class TagsController < ApplicationController
   # PATCH/PUT /tags/1
   def update
     if @tag.update(tag_params)
-      redirect_to tags_url, notice: 'Tag was successfully updated.'
+      redirect_to tags_url, notice: "Tag was successfully updated."
     else
       render :edit
     end
@@ -45,17 +43,18 @@ class TagsController < ApplicationController
   # DELETE /tags/1
   def destroy
     @tag.destroy
-    redirect_to tags_url, notice: 'Tag was successfully destroyed.'
+    redirect_to tags_url, notice: "Tag was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tag
-      @tag = Tag.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def tag_params
-      params.require(:tag).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tag
+    @tag = Tag.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def tag_params
+    params.require(:tag).permit(:name)
+  end
 end

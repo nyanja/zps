@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
   protected
 
   def fetch_categories
-    @head_categories = Category.where('position IS NOT NULL').pluck(:name, :slug)
+    @head_categories = Category.where("position IS NOT NULL").pluck(:name, :slug)
   end
 end

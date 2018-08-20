@@ -4,7 +4,7 @@ header.header.box-shaded
       i.fa.fa-home.header__nav-item
     .expand
     .header__nav
-      - if /\/admin\// =~ request.fullpath
+      - if /\/admin/ =~ request.fullpath
         = render 'layouts/admin_nav'
       - else
         = render 'layouts/regular_nav'

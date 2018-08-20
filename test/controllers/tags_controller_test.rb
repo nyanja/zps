@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class TagsControllerTest < ActionDispatch::IntegrationTest
   setup do
@@ -16,7 +16,7 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create tag" do
-    assert_difference('Tag.count') do
+    assert_difference("Tag.count") do
       post tags_url, params: { tag: { name: "1" } }
     end
 
@@ -39,7 +39,7 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy tag" do
-    assert_difference('Tag.count', -1) do
+    assert_difference("Tag.count", -1) do
       delete tag_url(@tag)
     end
 
