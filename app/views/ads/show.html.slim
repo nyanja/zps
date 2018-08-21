@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @ad.title
+p
+  strong Content:
+  = @ad.content
+p
+  strong Url:
+  = @ad.url
+p
+  strong Type:
+  = @ad.type
+p
+  strong Description:
+  = @ad.description
+p
+  strong Article:
+  = @ad.article_id
+
+=> link_to 'Edit', edit_ad_path(@ad)
+'|
+=< link_to 'Back', ads_path

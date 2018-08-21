@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # resources :ads
   resources :tags,        path: "admin/tags"
   resources :categories,  path: "admin/categories"
   resources :articles,    path: "admin/articles"

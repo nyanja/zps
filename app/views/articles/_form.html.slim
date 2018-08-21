@@ -1,61 +1,78 @@
-= simple_form_for(@article) do |f|
-  = f.error_notification
-  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+.nav.nav-tabs role="tablist"
+  a.nav-item.nav-link.active [id="nav-article-tab"
+                              href="#nav-article"
+                              role="tab"
+                              data-toggle="tab"
+                              aria-controls="nav-article"
+                              aria-selected="true"]  Статья
+  a.nav-item.nav-link [id="nav-comments-tab"
+                       data-toggle="tab"
+                       href="#nav-comments"
+                       role="tab"
+                       aria-controls="nav-comments"]  Комментарии
+.tab-content.bg-white.border.border-top-0.p-3
+  .tab-pane.show.active role="tabpanel" id="nav-article" aria-labelledby="nav-article-tab"
+    = simple_form_for(@article) do |f|
+      = f.error_notification
+      = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
-  .form-inputs
-    .d-flex
-      = f.input :name, as: :string, wrapper_html: { class: "expand mr-3" },
-                hint: "отображается поверх глваного изображения"
-      = f.input :slug, as: :string
-    = f.input :time_to_read
-    = f.input :preview, hint: "короткий текст без заголовков 150 символов"
-    div#article-content-hint.float-right.label
-    = f.input :content, wrapper_html: { class: 'mb-1' },
-                        input_html: { id: "article-content",
-                                      oninput: "updateArticleContentHint(this.value)" }
-    script updateArticleContentHint();
+      .form-inputs
+        .d-flex
+          = f.input :name, as: :string, wrapper_html: { class: "expand mr-3" },
+                    hint: "отображается поверх глваного изображения"
+          = f.input :slug, as: :string
+        = f.input :preview, hint: "короткий текст без заголовков 150 символов"
+        div#article-content-hint.float-right.label
+        = f.input :content, wrapper_html: { class: 'mb-1' },
+                            input_html: { id: "article-content",
+                                          oninput: "updateArticleContentHint(this.value)" }
+        script updateArticleContentHint();
 
-    .small.text-muted.mb-3
-      div ## заголовок h2
-      div
-        ' **жирный** __жирный__
-      div
-        ' *наклонный* _наклонный_
-      div
-        ' 1. элемент списка / * элемент списка / - элемент списка
-      div
-        ' [ссылка на](https://example.com "Title text")
-      div ![изображение alt text](https://ex.com/icon48.png "Logo Title Text")
-      div > цитата
-    = f.input :title, as: :string, input_html: { value: @article[:title] },
-              wrapper_html: { class: 'mb-1' }
-    .small.text-muted.mb-3
-      div форматируемое поле:
-      div
-        ' {domain} => записки-хозяйки.рф
-      div
-        ' {site} => Записки Хозяйки
-      div
-        ' а так же {name}, {title} и т.д. (Берегись перекрестных ссылок!)
-    = f.input :description, as: :string, input_html: { value: @article[:description] }, hint: "форматируемое поле"
-    = f.input :keywords, as: :string, input_html: { value: @article[:keywords] }
-    = f.input :image
-    = f.association :category
-    = f.association :tags, as: :check_boxes, label_method: :name
+        .small.text-muted.mb-3
+          div ## заголовок h2
+          div
+            ' **жирный** __жирный__
+          div
+            ' *наклонный* _наклонный_
+          div
+            ' 1. элемент списка / * элемент списка / - элемент списка
+          div
+            ' [ссылка на](https://example.com "Title text")
+          div ![изображение alt text](https://ex.com/icon48.png "Logo Title Text")
+          div > цитата
+        .d-flex
+          = f.input :title, as: :string, input_html: { value: @article[:title] },
+                    wrapper_html: { class: 'mb-1 expand mr-3' }
+          = f.input :image
+        .small.text-muted.mb-3
+          div форматируемое поле:
+          div
+            ' {domain} => записки-хозяйки.рф
+          div
+            ' {site} => Записки Хозяйки
+          div
+            ' а так же {name}, {title} и т.д. (Берегись перекрестных ссылок!)
+        = f.input :description, as: :string, input_html: { value: @article[:description] }, hint: "форматируемое поле"
+        = f.input :keywords, as: :string, input_html: { value: @article[:keywords] }
 
-  .form-actions
-    = f.button :submit, class: "btn btn-primary", value: "Сохранить"
+        = f.association :category
+        = f.association :tags, as: :check_boxes, label_method: :name
 
-hr
+      .form-actions
+        = f.button :submit, class: "btn btn-primary btn-block", value: "Сохранить"
 
-.h3 Комментарии:
-#article-comments
-  = render partial: 'comments/comment', collection: @article.comments, locals: { admin: true }
 
-.h3 Добавить комментарий
-= simple_form_for @article.comments.new, remote: true do |ff|
-  = ff.input_field :article_id, value: @article.id, type: :hidden
-  = ff.input :username
-  = ff.input :avatar
-  = ff.input :content
-  = ff.button :submit, class: "btn-primary btn"
+  .tab-pane role="tabpanel" id="nav-comments" aria-labelledby="nav-comments-tab"
+
+    #article-comments
+      = render partial: 'comments/comment', collection: @article.comments,
+               locals: { admin: true }
+
+    .mt-5
+      = simple_form_for @article.comments.new, remote: true do |ff|
+        = ff.input_field :article_id, value: @article.id, type: :hidden
+        .d-flex
+          = ff.input :username, wrapper_html: { class: "expand mr-3" }
+          = ff.input :avatar
+        = ff.input :content
+        = ff.button :submit, class: "btn-primary btn btn-block"
