@@ -10,6 +10,12 @@
                        href="#nav-comments"
                        role="tab"
                        aria-controls="nav-comments"]  Комментарии
+  a.nav-item.nav-link [id="nav-ads-tab"
+                       data-toggle="tab"
+                       href="#nav-ads"
+                       role="tab"
+                       aria-controls="nav-ads"]  Тизеры
+
 .tab-content.bg-white.border.border-top-0.p-3
   .tab-pane.show.active role="tabpanel" id="nav-article" aria-labelledby="nav-article-tab"
     = simple_form_for(@article) do |f|
@@ -63,11 +69,9 @@
 
 
   .tab-pane role="tabpanel" id="nav-comments" aria-labelledby="nav-comments-tab"
-
     #article-comments
       = render partial: 'comments/comment', collection: @article.comments,
                locals: { admin: true }
-
     .mt-5
       = simple_form_for @article.comments.new, remote: true do |ff|
         = ff.input_field :article_id, value: @article.id, type: :hidden
@@ -76,3 +80,5 @@
           = ff.input :avatar
         = ff.input :content
         = ff.button :submit, class: "btn-primary btn btn-block"
+
+  .tab-pane role="tabpanel" id="nav-ads" aria-labelledby="nav-ads-tab"
