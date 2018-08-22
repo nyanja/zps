@@ -87,11 +87,13 @@
     .mt-5
       = simple_form_for @article.meows.new, remote: true do |ff|
         = ff.input_field :article_id, value: @article.id, type: :hidden
-        = ff.input :title
+        = ff.input :description, label: "Название (внутреннее)"
+        = ff.input :title, label: "Заголовок"
         .d-flex
-          = ff.input :url, wrapper_html: {class: "expand mr-3"}
-          = ff.input :meow_type
-        = ff.input :description, type: :text
-        = ff.input :content, type: :text
+          = ff.input :url, label: "Ссылка",
+                           wrapper_html: {class: "expand mr-3"}
+          = ff.input :meow_type, label: "Тип",
+                     collection: [["всплывающий", "float"]]
+        = ff.input :content, label: "Основной текст", as: :text
 
         = ff.button :submit, class: "btn btn-primary btn-block"
