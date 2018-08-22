@@ -5,13 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "mini_racer"
 gem "pg", ">= 0.18", "< 2.0"
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.2"
-gem "sass-rails", "~> 5.0"
-gem "therubyracer", platforms: :ruby
+gem "sassc"
 gem "uglifier", ">= 1.3.0"
 
+gem "bootstrap"
 gem "image_processing", "~> 1.2"
 gem "jquery-rails", "4.2"
 gem "redcarpet"

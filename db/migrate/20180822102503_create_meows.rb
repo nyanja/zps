@@ -1,6 +1,6 @@
-class CreateAds < ActiveRecord::Migration[5.2]
+class CreateMeows < ActiveRecord::Migration[5.2]
   def change
-    create_table :ads do |t|
+    create_table :meows do |t|
       t.string :title
       t.string :content
       t.string :url
@@ -10,7 +10,7 @@ class CreateAds < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_index :ads, :type
-    add_index :ads, :article_id
+    add_index :meows, :type
+    add_index :meows, :article_id
   end
 end

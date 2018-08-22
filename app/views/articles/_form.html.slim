@@ -82,3 +82,15 @@
         = ff.button :submit, class: "btn-primary btn btn-block"
 
   .tab-pane role="tabpanel" id="nav-ads" aria-labelledby="nav-ads-tab"
+    #article-meows
+    .mt-5
+      = simple_form_for @article.meows.new, remote: true do |ff|
+        = ff.input_field :article_id, value: @article.id, type: :hidden
+        = ff.input :title
+        .d-flex
+          = ff.input :url, wrapper_html: {class: "expand mr-3"}
+          = ff.input :type
+        = ff.input :description, type: :text
+        = ff.input :content, type: :text
+
+        = ff.button :submit, class: "btn btn-primary btn-block"

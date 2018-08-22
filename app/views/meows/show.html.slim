@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @meow.title
+p
+  strong Content:
+  = @meow.content
+p
+  strong Url:
+  = @meow.url
+p
+  strong Type:
+  = @meow.type
+p
+  strong Description:
+  = @meow.description
+p
+  strong Article:
+  = @meow.article_id
+
+=> link_to 'Edit', edit_meow_path(@meow)
+'|
+=< link_to 'Back', meows_path

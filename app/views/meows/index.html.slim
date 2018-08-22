@@ -1,0 +1,31 @@
+h1 Listing meows
+
+table
+  thead
+    tr
+      th Title
+      th Content
+      th Url
+      th Type
+      th Description
+      th Article
+      th
+      th
+      th
+
+  tbody
+    - @meows.each do |meow|
+      tr
+        td = meow.title
+        td = meow.content
+        td = meow.url
+        td = meow.type
+        td = meow.description
+        td = meow.article_id
+        td = link_to 'Show', meow
+        td = link_to 'Edit', edit_meow_path(meow)
+        td = link_to 'Destroy', meow, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Meow', new_meow_path

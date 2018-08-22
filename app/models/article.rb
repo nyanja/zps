@@ -3,6 +3,7 @@ class Article < ApplicationRecord
   formatable_fields :title, :description, :keywords
   has_one_attached :image
   has_many :comments
+  has_many :meows, dependent: :destroy # ads
   belongs_to :category
   has_and_belongs_to_many :tags
 
