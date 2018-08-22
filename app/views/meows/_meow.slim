@@ -1,0 +1,15 @@
+.border.rounded.mb-3
+  .d-flex.px-3.py-1.bg-light
+    .b.mr-3 = "[#{meow.id}]"
+    .badge.badge-secondary.mr-3 = meow.meow_type
+    .b.expand.mr-3 = meow.description
+    = link_to edit_meow_path(meow) do
+      i.far.fa-edit.mx-3
+    = link_to meow, data: { confirm: 'Are you sure?' },
+                            method: :delete,
+                            remote: true do
+      i.fa.fa-trash
+  .d-flex.px-3.py-2
+    div
+      div = meow.title
+      div = meow.content

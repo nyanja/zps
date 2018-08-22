@@ -78,13 +78,13 @@ ActiveRecord::Schema.define(version: 2018_08_22_102503) do
     t.string "title"
     t.string "content"
     t.string "url"
-    t.string "type"
+    t.string "meow_type"
     t.string "description"
     t.integer "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_meows_on_article_id"
-    t.index ["type"], name: "index_meows_on_type"
+    t.index ["meow_type"], name: "index_meows_on_meow_type"
   end
 
   create_table "tags", force: :cascade do |t|

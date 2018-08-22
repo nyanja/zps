@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :meows
+  resources :meows,       path: "admin/meows"
   resources :tags,        path: "admin/tags"
   resources :categories,  path: "admin/categories"
   resources :articles,    path: "admin/articles"

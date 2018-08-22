@@ -1,5 +1,10 @@
+# frozen_string_literal: true
+
 class MeowsController < ApplicationController
-  before_action :set_meow, only: [:show, :edit, :update, :destroy]
+  if Rails.env.production?
+    http_basic_authenticate_with name: "zbs", password: ENV["ZBS_PASSWORD"]
+  end
+  before_action :set_meow, only: %i[show edit update destroy]
 
   # GET /meows
   def index
@@ -7,8 +12,7 @@ class MeowsController < ApplicationController
   end
 
   # GET /meows/1
-  def show
-  end
+  def show; end
 
   # GET /meows/new
   def new
@@ -16,24 +20,23 @@ class MeowsController < ApplicationController
   end
 
   # GET /meows/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /meows
   def create
     @meow = Meow.new(meow_params)
+    @meow.save!
+    @meows = all_meows
 
-    if @meow.save
-      redirect_to @meow, notice: 'Meow was successfully created.'
-    else
-      render :new
+    respond_to do |f|
+      f.js
     end
   end
 
   # PATCH/PUT /meows/1
   def update
     if @meow.update(meow_params)
-      redirect_to @meow, notice: 'Meow was successfully updated.'
+      redirect_to @meow, notice: "Meow was successfully updated."
     else
       render :edit
     end
@@ -41,18 +44,28 @@ class MeowsController < ApplicationController
 
   # DELETE /meows/1
   def destroy
+    @meows = all_meows
     @meow.destroy
-    redirect_to meows_url, notice: 'Meow was successfully destroyed.'
+
+    respond_to do |f|
+      f.js
+    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_meow
-      @meow = Meow.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def meow_params
-      params.require(:meow).permit(:title, :content, :url, :type, :description, :article_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_meow
+    @meow = Meow.find(params[:id])
+  end
+
+  def all_meows
+    Meow.where(article_id: @meow.article.id)
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def meow_params
+    params.require(:meow).permit(:title, :content, :url, :meow_type,
+                                 :description, :article_id)
+  end
 end
