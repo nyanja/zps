@@ -1,5 +1,5 @@
 .border.rounded.mb-3
-  .d-flex.px-3.py-1.bg-light
+  .d-flex.px-3.py-1.bg-light.align-items-center
     .b.mr-3 = "[#{meow.id}]"
     .badge.badge-secondary.mr-3 = meow.meow_type
     .b.expand.mr-3 = meow.description
@@ -10,6 +10,7 @@
                             remote: true do
       i.fa.fa-trash
   .d-flex.px-3.py-2
+    = image_tag meow.image, class: "article__meow-image" if meow.image.attached?
     div
       .b.text-secondary = meow.title
       div = meow.content

@@ -88,10 +88,14 @@
       = simple_form_for @article.meows.new, remote: true do |ff|
         = ff.input_field :article_id, value: @article.id, type: :hidden
         = ff.input :description, label: "Название (внутреннее)"
+        .d-flex
+          = ff.input :image, label: "Картинка"
+          = ff.input :image_title, wrapper_html: {class: "expand mr-3"}
+          = ff.input :image_alt, wrapper_html: {class: "expand"}
         = ff.input :title, label: "Заголовок"
         .d-flex
           = ff.input :url, label: "Ссылка",
-                           wrapper_html: {class: "expand mr-3"}
+                           wrapper_html: { class: "expand mr-3" }
           = ff.input :meow_type, label: "Тип",
                      collection: [["всплывающий", "float"]]
         = ff.input :content, label: "Основной текст", as: :text

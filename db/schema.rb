@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_22_102503) do
+ActiveRecord::Schema.define(version: 2018_08_23_104444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 2018_08_22_102503) do
     t.integer "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_alt"
+    t.string "image_title"
     t.index ["article_id"], name: "index_meows_on_article_id"
     t.index ["meow_type"], name: "index_meows_on_meow_type"
   end

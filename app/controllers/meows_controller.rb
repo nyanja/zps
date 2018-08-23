@@ -26,6 +26,7 @@ class MeowsController < ApplicationController
   def create
     @meow = Meow.new(meow_params)
     @meow.save!
+    attach_image
     @meows = all_meows
 
     respond_to do |f|
@@ -66,6 +67,12 @@ class MeowsController < ApplicationController
   # Only allow a trusted parameter "white list" through.
   def meow_params
     params.require(:meow).permit(:title, :content, :url, :meow_type,
-                                 :description, :article_id)
+                                 :description, :article_id, :image_title,
+                                 :image_alt)
+  end
+
+  def attach_image
+    return unless params[:meow][:image]
+    @meow.image.attach(params[:meow][:image])
   end
 end
