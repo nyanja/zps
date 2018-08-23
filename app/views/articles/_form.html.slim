@@ -29,12 +29,14 @@
           = f.input :slug, as: :string
         = f.input :preview, hint: "короткий текст без заголовков 150 символов"
         div#article-content-hint.float-right.label
-        = f.input :content, wrapper_html: { class: 'mb-1' },
-                            input_html: { id: "article-content",
-                                          oninput: "updateArticleContentHint(this.value)" }
+        = f.input :content, label: "Текст статьи *MD*",
+                  wrapper_html: { class: 'mb-1' },
+                  input_html: { id: "article-content",
+                                oninput: "updateArticleContentHint(this.value)" }
         script updateArticleContentHint();
 
         .small.text-muted.mb-3
+          div !ad[123] - вставить тизер
           div ## заголовок h2
           div
             ' **жирный** __жирный__
@@ -76,9 +78,10 @@
       = simple_form_for @article.comments.new, remote: true do |ff|
         = ff.input_field :article_id, value: @article.id, type: :hidden
         .d-flex
-          = ff.input :username, wrapper_html: { class: "expand mr-3" }
-          = ff.input :avatar
-        = ff.input :content
+          = ff.input :username, label: "Имя пользователя",
+                     wrapper_html: { class: "expand mr-3" }
+          = ff.input :avatar, label: "Аватар"
+        = ff.input :content, label: "Текст комментария *MD*"
         = ff.button :submit, class: "btn-primary btn btn-block"
 
   .tab-pane role="tabpanel" id="nav-ads" aria-labelledby="nav-ads-tab"

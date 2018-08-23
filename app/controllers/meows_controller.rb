@@ -37,7 +37,8 @@ class MeowsController < ApplicationController
   # PATCH/PUT /meows/1
   def update
     if @meow.update(meow_params)
-      redirect_to @meow, notice: "Meow was successfully updated."
+      redirect_to edit_article_path(@meow.article),
+                  notice: "Тизер обновлен"
     else
       render :edit
     end

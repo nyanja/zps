@@ -1,0 +1,12 @@
+div
+  = link_to meow.url, class: "ulink d-flex p-2" do
+    .d-flex.p-2
+      = image_tag meow.image, class: "meow-image mr-3",
+                  alt: meow.image_alt,
+                  title: meow.image_title if meow.image.attached?
+      div
+        .emb-meow__title.b.text-success = meow.title
+        .emb-meow__text.quote
+          p
+            => meow.content
+            span.link читать далее...

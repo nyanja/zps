@@ -10,7 +10,7 @@
                             remote: true do
       i.fa.fa-trash
   .d-flex.px-3.py-2
-    = image_tag meow.image, class: "article__meow-image" if meow.image.attached?
+    = image_tag meow.image, class: "meow-image mr-3" if meow.image.attached?
     div
       .b.text-secondary = meow.title
       div = meow.content

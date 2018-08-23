@@ -20,6 +20,15 @@
   font-weight: bold;
 }
 
+.link {
+  color: #007bff;
+
+  &:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+}
+
 .nowrap {
   flex-shrink: 0;
   white-space: nowrap;

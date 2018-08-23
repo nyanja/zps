@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ArticlesController < ApplicationController
   if Rails.env.production?
     http_basic_authenticate_with name: "zbs", password: ENV["ZBS_PASSWORD"]
@@ -10,7 +12,9 @@ class ArticlesController < ApplicationController
   end
 
   # GET /articles/1
-  def show; end
+  def show
+    @meows = @article.meows.map { |m| [m.id, m] }.to_h
+  end
 
   # GET /articles/new
   def new
@@ -18,7 +22,8 @@ class ArticlesController < ApplicationController
   end
 
   # GET /articles/1/edit
-  def edit; end
+  def edit
+  end
 
   # POST /articles
   def create

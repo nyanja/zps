@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   if Rails.env.production?
     http_basic_authenticate_with name: "zbs", password: ENV["ZBS_PASSWORD"]

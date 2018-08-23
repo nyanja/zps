@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PagesController < ApplicationController
   before_action :fetch_categories
 
@@ -12,6 +14,7 @@ class PagesController < ApplicationController
     @meta_description = @article.description
     @meta_keywords = @article.keywords
     @article.update views_count: @article.views_count.succ
+    @meows = @article.meows.map { |m| [m.id, m] }.to_h
   end
 
   def category

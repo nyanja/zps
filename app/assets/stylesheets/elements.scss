@@ -27,10 +27,12 @@ h4, .h4 {
 }
 
 .md {
-  blockquote {
-    border-left: .2em solid $c-font-light;
+  blockquote, .quote {
+    border: 1px solid var(--c-border);
+    border-radius: 4px;
+    border-left: .2em solid var(--green);
     color: black;
-    padding-left: 1em;
+    padding: .4em 1em 0;
   }
 }
 
