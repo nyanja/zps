@@ -1,12 +1,14 @@
 .breadcrumbs.fs-s [itemscope itemtype="http://schema.org/BreadcrumbList"]
   span [itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"]
     => link_to :root, itemprop: "item" do
-      i.fas.fa-home
-  '-
+      'Записки хозяйки
+  span.label
+    '/
   - data[0...-1].each do |item|
     span [itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"]
       =<> link_to item.last, itemprop: "item" do
         span itemprop="name" = item.first
-      '-
+      span.label
+        '/
   span [itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"]
     span.c-medium itemprop="name" = data.last

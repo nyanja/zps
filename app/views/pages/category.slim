@@ -1,6 +1,7 @@
 .category
-  h1.fs-xxl.c-medium.text-center = @category.name
-  hr
-  .article-previews
+  = render partial: 'layouts/breadcrumbs',
+           locals: { data: [@category.name] }
+
+  .article-previews.mt-3
     - @category.articles.each do |article|
       = render 'pages/preview', article: article
