@@ -9,6 +9,8 @@ class Article < ApplicationRecord
 
   after_commit :attach_default_image, on: :create
 
+  default_scope { order("updated_at DESC") }
+
   def relevants quantity = 6
     ids = ArticlesTag
           .where(tag_id: tag_ids)

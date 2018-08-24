@@ -23,5 +23,9 @@ class PagesController < ApplicationController
     @title = @description = @category.name
   end
 
+  def home
+    @articles = Article.all.limit(40)
+  end
+
   def admin; end
 end
