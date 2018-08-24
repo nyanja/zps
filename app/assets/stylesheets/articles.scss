@@ -16,13 +16,29 @@
   min-width: 16em;
   overflow: hidden;
   width: 20em;
+
+  &:hover .article__title-image {
+    transform: scale(1.2);
+
+    .h3 {
+      transform: scale(0.87);
+    }
+  }
+
+  &:hover .article-previews__img .hw {
+    transform: scale(0.8);
+  }
+
+  .h3 {
+    transition: transform 0.4s
+  }
 }
 
 .article-preview__button {
   align-self: center;
 }
 
-.article-preview-item-img {
+.article-preview__img {
   min-height: 8em;
   padding: 2em;
 }
@@ -42,4 +58,5 @@
   display: flex;
   justify-content: center;
   text-shadow: 0 0 1em #000;
+  transition: transform 0.4s;
 }

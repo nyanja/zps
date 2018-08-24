@@ -34,14 +34,7 @@
   white-space: nowrap;
 }
 
-.ulink {
-  color: inherit;
 
-  &:hover {
-    color: inherit;
-    text-decoration: inherit;
-  }
-}
 
 .rounded {
   overflow: hidden;
@@ -63,6 +56,10 @@
   font-size: 2.2em;
 }
 
+.overflow {
+  overflow: hidden;
+}
+
 .pointer {
   cursor: pointer;
 }
@@ -73,4 +70,13 @@
 
 .text-shaded {
   text-shadow: 0 0 .3em $c-border;
+}
+
+.ulink {
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+    text-decoration: inherit;
+  }
 }
