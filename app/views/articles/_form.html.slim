@@ -1,3 +1,5 @@
+= render "layouts/md_hint"
+
 .nav.nav-tabs role="tablist"
   a.nav-item.nav-link.active [id="nav-article-tab"
                               href="#nav-article"
@@ -27,27 +29,24 @@
           = f.input :name, as: :string, wrapper_html: { class: "expand mr-3" },
                     hint: "отображается поверх глваного изображения"
           = f.input :slug, as: :string
-        = f.input :preview, hint: "короткий текст без заголовков 150 символов"
-        div#article-content-hint.float-right.label
+        #article-preview-hint.float-right.label
+        = f.input :preview, hint: "короткий текст без заголовков 150 символов",
+                  input_html: {id: "article-preview",
+                               oninput: "updateInputCounter('article-preview', this.value)"}
+        #article-content-hint.float-right.label
+        = render "layouts/md_hint_button"
         = f.input :content, label: "Текст статьи *MD*",
                   wrapper_html: { class: 'mb-1' },
                   input_html: { id: "article-content",
-                                oninput: "updateArticleContentHint(this.value)" }
-        script updateArticleContentHint();
+                                oninput: "updateInputCounter('article-content', this.value)" }
+        script
+          | setTimeout( () => {
+              updateInputCounter("article-content");
+              updateInputCounter("article-preview");
+              updateInputCounter("article-description");
+            }, 1000)
 
-        .small.text-muted.mb-3
-          div !ad[123] - вставить тизер
-          div ## заголовок h2
-          div
-            ' **жирный** __жирный__
-          div
-            ' *наклонный* _наклонный_
-          div
-            ' 1. элемент списка / * элемент списка / - элемент списка
-          div
-            ' [ссылка на](https://example.com "Title text")
-          div ![изображение alt text](https://ex.com/icon48.png "Logo Title Text")
-          div > цитата
+
         .d-flex
           = f.input :title, as: :string, input_html: { value: @article[:title] },
                     wrapper_html: { class: 'mb-1 expand mr-3' }
@@ -60,7 +59,12 @@
             ' {site} => Записки Хозяйки
           div
             ' а так же {name}, {title} и т.д. (Берегись перекрестных ссылок!)
-        = f.input :description, as: :string, input_html: { value: @article[:description] }, hint: "форматируемое поле"
+        #article-description-hint.float-right.label
+        = f.input :description, as: :string,
+                  input_html: { value: @article[:description],
+                                id: "article-description",
+                                oninput: "updateInputCounter('article-description', this.value)"},
+                  hint: "форматируемое поле"
         = f.input :keywords, as: :string, input_html: { value: @article[:keywords] }
 
         = f.association :category
@@ -81,6 +85,7 @@
           = ff.input :username, label: "Имя пользователя",
                      wrapper_html: { class: "expand mr-3" }
           = ff.input :avatar, label: "Аватар"
+        = render "layouts/md_hint_button"
         = ff.input :content, label: "Текст комментария *MD*"
         = ff.button :submit, class: "btn-primary btn btn-block"
 

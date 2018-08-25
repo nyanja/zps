@@ -1,0 +1,20 @@
+.modal.fade[id="md-hint" tabindex="-1" role="dialog"
+             aria-hidden="false"]
+  .modal-dialog[role="document"]
+    .modal-content
+      .modal-header
+        .modal-title.fs-l ну короче
+        .close[data-dismiss="modal" aria-label="Close"]
+          .fas.fa-close
+      .modal-body
+        - {"!ad[123]"                                    => "вставить тизер",
+           "## Привет"                                   => "заголовок H2",
+           "**привет**"                                  => "жирный",
+           "*привет*"                                    => "наклонный",
+           "[жми сюда](ex.com, \"title text\")"          => "ссылка",
+           "![alt text](ex.com/icon.png \"title text\")" => "изображение",
+           "> знаете ли вы"                              => "цитата"}.each do |k, v|
+          .d-flex.align-items-center.mt-1
+            .badge.badge-light.fs-n.mr-2 = k
+            =<> "-"
+            = v
