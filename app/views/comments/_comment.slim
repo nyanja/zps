@@ -1,4 +1,4 @@
-.comment.bordered.rounded.sheet.mb-3.py-2.px-3.d-flex.align-items-start
+.comment.bordered.rounded.sheet.mb-3.py-2.px-3.d-flex.align-items-start[itemtype="http://schema.org/Comment" itemscope]
   .d-flex
     .comment__avatar.bg-image.rounded-circle.mr-3(
       style = "background-image:url(
@@ -6,7 +6,7 @@
       comment.avatar : comment.avatar.variant(resize: '120x120'))})")
 
     .d-sm-none
-      strong.expand = comment.username
+      strong.expand[itemprop="author"] = comment.username
   .expand
     .d-none.d-sm-flex
       strong.expand = comment.username
@@ -17,4 +17,4 @@
                            method: :delete,
                            remote: true do
           i.fa.fa-trash
-    .md.mt-2 = render_md comment.content
+    .md.mt-2[itemprop="text"] = render_md comment.content
