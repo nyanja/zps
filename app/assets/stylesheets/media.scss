@@ -18,6 +18,10 @@
   .article__head {
     min-height: 18em;
   }
+
+  .md img {
+    max-width: 60%;
+  }
 }
 
 @include media-breakpoint-down(sm) { // SMALL >
@@ -36,6 +40,11 @@
   .article__head {
     min-height: 16em;
     padding: 3em;
+  }
+
+  .md img {
+    max-width: 100%;
+    margin-left: 0;
   }
 }
 

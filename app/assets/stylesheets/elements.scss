@@ -34,6 +34,13 @@ h4, .h4 {
     color: black;
     padding: .4em 1em 0;
   }
+
+  img {
+    max-width: 50%;
+    float: right;
+    margin: 1em;
+    margin-right: 0;
+  }
 }
 
 textarea {

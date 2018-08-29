@@ -14,6 +14,10 @@
   box-shadow: 0 0 18px $c-border;
 }
 
+.clear {
+  clear: both;
+}
+
 .label {
   color: $c-font-light;
   display: inline;

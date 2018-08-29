@@ -13,7 +13,8 @@
            "*привет*"                                    => "наклонный",
            "[жми сюда](ex.com, \"title text\")"          => "ссылка",
            "![alt text](ex.com/icon.png \"title text\")" => "изображение",
-           "> знаете ли вы"                              => "цитата"}.each do |k, v|
+           "> знаете ли вы"                              => "цитата",
+           "<div class=\"clear\"></div>" => "ограничитель обтекания картинки текстом"}.each do |k, v|
           .d-flex.align-items-center.mt-1
             .badge.badge-light.fs-n.mr-2 = k
             =<> "-"
