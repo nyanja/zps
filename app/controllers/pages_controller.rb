@@ -8,7 +8,9 @@ class PagesController < ApplicationController
   end
 
   def article
-    @article = Article.find_by_slug(params[:slug])
+    @category = Category.find_by_slug(params[:category_slug])
+    return not_found unless @category
+    @article = @category.articles.find_by_slug(params[:slug])
     return not_found unless @article
     @title = @article.title
     @meta_description = @article.description
@@ -19,7 +21,14 @@ class PagesController < ApplicationController
 
   def category
     @category = Category.find_by_slug(params[:slug])
-    return not_found unless @category
+    unless @category
+      if (article = Article.find_by_slug(params[:slug]))
+        return redirect_to article_page_path(article.to_param)
+      else
+        return not_found
+      end
+    end
+    @articles = @category.articles
     @title = @description = @category.name
   end
 

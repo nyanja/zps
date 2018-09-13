@@ -28,6 +28,11 @@ class Article < ApplicationRecord
     (content.size * 0.0015).round
   end
 
+  def to_param
+    { category_slug: category.slug,
+      slug: slug }
+  end
+
   private
 
   def attach_default_image
