@@ -7,8 +7,9 @@ header.header.box-shaded
     - else
       = render 'layouts/regular_nav'
 
-  #menu.collapse.d-md-none
-    ul
-      - @head_categories.select { |c| !request.fullpath.match? c.second}.each do |c|
-        .header__nav-item.text-right.mr-5.pr-4
-          = link_to c.first, "/#{c.second}", class: "ulink"
+  - unless /\/admin/ =~ request.fullpath
+    #menu.d-md-none.collapse
+      ul
+        - @head_categories.select { |c| !request.fullpath.match? c.second}.each do |c|
+          .header__nav-item.text-right.mr-5.pr-4
+            = link_to c.first, "/#{c.second}", class: "ulink"

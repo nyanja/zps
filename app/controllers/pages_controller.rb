@@ -24,7 +24,7 @@ class PagesController < ApplicationController
     # TODO
     unless @category
       if (article = Article.find_by_slug(params[:slug]))
-        return redirect_to article_page_path(article.to_param)
+        return redirect_to article_page_path(article.param)
       else
         return not_found
       end

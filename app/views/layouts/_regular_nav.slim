@@ -7,5 +7,5 @@
 .header__menu.expand.text-right.d-md-none.header__nav-item.d-flex.justify-content-end.align-items-center[
   data-toggle="collapse" data-target="#menu" aria-expanded="false" aria-controls="menu"
 ]
-  span.mx-4 = @current_category&.name
+  span.mx-4 = @current_category&.name || "Записки хозяйки"
   i.fas.fa-bars.fa-2x

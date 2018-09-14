@@ -1,4 +1,4 @@
-= link_to article_page_path(article.to_param), class: "article-preview-item bordered sheet rounded ulink d-flex flex-column" do
+= link_to article_page_path(article.param), class: "article-preview-item bordered sheet rounded ulink d-flex flex-column" do
   .overflow.text-center
     .article__title-image.bg-image.article-preview__img style="background-image:url(#{url_for article.image.variant(resize: '400')})"
       .h3 = article.name
