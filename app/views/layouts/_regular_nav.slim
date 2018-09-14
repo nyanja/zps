@@ -1,2 +1,11 @@
-- @head_categories.each do |c|
-  = link_to c.first, "/#{c.last}", class: "p-3 header__nav-item"
+/ Desktop nav bar
+.header__nav.d-none.d-md-block
+  - @head_categories.each do |c|
+    = link_to c.first, "/#{c.last}", class: "p-3 header__nav-item"
+
+/ Mobile menu bar
+.header__menu.expand.text-right.d-md-none.header__nav-item.d-flex.justify-content-end.align-items-center[
+  data-toggle="collapse" data-target="#menu" aria-expanded="false" aria-controls="menu"
+]
+  span.mx-4 = @current_category&.name
+  i.fas.fa-bars.fa-2x

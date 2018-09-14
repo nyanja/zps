@@ -2,10 +2,13 @@ header.header.box-shaded
   .container.d-flex.align-items-center
     = link_to :root, class: "ulink header__logo" do
       i.fa.fa-home.header__nav-item
-    .expand
-    .header__nav
-      - if /\/admin/ =~ request.fullpath
-        = render 'layouts/admin_nav'
-      - else
-        = render 'layouts/regular_nav'
-    .expand
+    - if /\/admin/ =~ request.fullpath
+      = render 'layouts/admin_nav'
+    - else
+      = render 'layouts/regular_nav'
+
+  #menu.collapse.d-md-none
+    ul
+      - @head_categories.select { |c| !request.fullpath.match? c.second}.each do |c|
+        .header__nav-item.text-right.mr-5.pr-4
+          = link_to c.first, "/#{c.second}", class: "ulink"

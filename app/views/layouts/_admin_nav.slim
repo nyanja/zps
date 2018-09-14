@@ -1,2 +1,3 @@
-- {articles: "Статьи", tags: "Тэги", categories: "Категории"}.each do |(k, v)|
-  = link_to v, url_for(k), class: "p-3 header__nav-item"
+.header__nav
+  - {articles: "Статьи", tags: "Тэги", categories: "Категории"}.each do |(k, v)|
+    = link_to v, url_for(k), class: "p-3 header__nav-item"

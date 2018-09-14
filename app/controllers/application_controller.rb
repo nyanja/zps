@@ -9,5 +9,7 @@ class ApplicationController < ActionController::Base
 
   def fetch_categories
     @head_categories = Category.where("position IS NOT NULL").pluck(:name, :slug)
+    slug = request.fullpath.split(%r{[\/\?]}).second
+    @current_category = Category.find_by_slug slug
   end
 end

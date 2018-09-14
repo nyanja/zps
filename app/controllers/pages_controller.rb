@@ -21,6 +21,7 @@ class PagesController < ApplicationController
 
   def category
     @category = Category.find_by_slug(params[:slug])
+    # TODO
     unless @category
       if (article = Article.find_by_slug(params[:slug]))
         return redirect_to article_page_path(article.to_param)
