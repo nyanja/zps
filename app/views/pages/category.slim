@@ -2,5 +2,5 @@
   = render partial: 'layouts/breadcrumbs',
            locals: { data: [@category.name] }
 
-  .article-previews.mt-3
+  .article-previews.mt-3.inner
     = render partial: 'pages/preview', collection: @articles, as: :article

@@ -9,6 +9,7 @@
 
   .header__nav-item {
     font-size: 1em;
+    padding: .6rem !important;
   }
 
   .article__h1 {
@@ -29,12 +30,19 @@
     margin: .6em 0;
   }
 
-  // .header__nav-item {
-    // font-size: .9em;
-  // }
-
   .article__h1 {
     font-size: 2.6em;
+  }
+
+  .inner {
+    margin-left: -0.8rem !important;
+    margin-right: -0.8rem !important;
+  }
+
+  .content {
+    border-left: none;
+    border-right: none;
+    border-radius: 0 !important;
   }
 
   .article__head {
@@ -49,6 +57,7 @@
 
   .md img {
     max-width: 100%;
+    width: 100%;
     margin-left: 0;
   }
 }
