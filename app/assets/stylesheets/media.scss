@@ -42,6 +42,11 @@
     padding: 3em;
   }
 
+  .article-preview-item {
+    max-width: 100%;
+    min-width: 100%;
+  }
+
   .md img {
     max-width: 100%;
     margin-left: 0;
@@ -64,6 +69,10 @@
 
   .article__sub-head {
     font-size: 0.7em;
+  }
+
+  .article-preview__img {
+    height: 7em;
   }
 
   .md {
