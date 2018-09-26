@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get "/admin", to: "pages#admin"
   get "/catalog", to: "pages#catalog"
-  get "/c/:slug", to: redirect { |params, _| "/#{params[:slug]}" }
   get "/:category_slug/:slug", to: "pages#article", as: :article_page
   get "/:slug", to: "pages#category", as: :category_page
 end
