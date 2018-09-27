@@ -69,6 +69,7 @@
 
         = f.association :category
         = f.association :tags, as: :check_boxes, label_method: :name
+        = f.association :links, as: :check_boxes, label_method: :name
 
       .form-actions
         = f.button :submit, class: "btn btn-primary btn-block", value: "Сохранить"

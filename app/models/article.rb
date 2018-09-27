@@ -7,9 +7,9 @@ class Article < ApplicationRecord
   belongs_to :category
   has_and_belongs_to_many :tags
   has_many :articles_links
-  has_many :articles_links, as: :link
+  has_many :links_articles, class_name: "ArticlesLink", foreign_key: :link_id
   has_many :links, through: :articles_links
-  has_many :articles, through: :articles_links, as: :link
+  has_many :articles, through: :links_articles
 
   after_commit :attach_default_image, on: :create
 
