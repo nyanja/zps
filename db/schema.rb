@@ -66,8 +66,6 @@ ActiveRecord::Schema.define(version: 2018_09_27_130625) do
   create_table "articles_links", force: :cascade do |t|
     t.integer "article_id"
     t.integer "link_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_articles_links_on_article_id"
     t.index ["link_id"], name: "index_articles_links_on_link_id"
   end

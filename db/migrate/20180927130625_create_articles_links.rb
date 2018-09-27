@@ -3,7 +3,6 @@ class CreateArticlesLinks < ActiveRecord::Migration[5.2]
     create_table :articles_links do |t|
       t.integer :article_id, index: true
       t.integer :link_id, index: true
-      t.timestamps
     end
   end
 end
