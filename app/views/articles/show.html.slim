@@ -39,6 +39,6 @@ br
 span.c-light |
 =<> link_to 'Удалить', @article, data: { confirm: 'Точно?' }, method: :delete
 span.c-light |
-=<> link_to 'Перейти к статье', "/#{@article.slug}"
+=<> link_to 'Перейти к статье', "/#{@article.category.slug}/#{@article.slug}"
 span.c-light |
 =< link_to 'Список статей', articles_path

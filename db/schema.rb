@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_13_185713) do
+ActiveRecord::Schema.define(version: 2018_09_27_130625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,18 +36,38 @@ ActiveRecord::Schema.define(version: 2018_09_13_185713) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "ads", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.string "url"
+    t.string "type"
+    t.string "description"
+    t.integer "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_ads_on_article_id"
+    t.index ["type"], name: "index_ads_on_type"
+  end
+
   create_table "articles", force: :cascade do |t|
-    t.text "name"
-    t.text "slug"
+    t.string "name"
+    t.string "slug"
     t.text "preview"
     t.text "content"
-    t.text "title"
-    t.text "description"
-    t.text "keywords"
+    t.string "title"
+    t.string "description"
+    t.string "keywords"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
     t.integer "views_count", default: 0
+  end
+
+  create_table "articles_links", force: :cascade do |t|
+    t.integer "article_id"
+    t.integer "link_id"
+    t.index ["article_id"], name: "index_articles_links_on_article_id"
+    t.index ["link_id"], name: "index_articles_links_on_link_id"
   end
 
   create_table "articles_tags", force: :cascade do |t|
