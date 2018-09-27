@@ -64,7 +64,8 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:name, :slug, :preview, :content, :title,
                                     :description, :keywords, { tag_ids: [] },
-                                    :category_id, :time_to_read)
+                                    :category_id, :time_to_read,
+                                    { link_ids: [] })
   end
 
   def attach_image

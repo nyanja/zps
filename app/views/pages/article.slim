@@ -10,10 +10,10 @@ style .bg-image { background-image: url(#{url_for @article.image.variant(resize:
 .md.sheet.bordered.rounded.pt-3.px-3.mt-3.inner.content
   = render_md @article.content
 
-- if @article.relevants.exists?
+- if @article.links.exists?
   .h4.c-dark.mt-5 Может Вас заинтересовать:
   .article-previews
-    - @article.relevants.each do |article|
+    - @article.links.each do |article|
       = render 'preview', article: article
 
 = render 'comments' if @article.comments.count.positive?
