@@ -24,7 +24,8 @@ class PagesController < ApplicationController
     # TODO
     return not_found unless @category
     @articles = @category.articles
-    @title = @description = @category.name
+    @title = @category.name
+    @meta_description = @category.description
   end
 
   def home
